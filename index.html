@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bryce Taylor Portfolio</title>
+<style>
+:root {
+  --bg:#0b0b0f;
+  --panel:#16161d;
+  --panel2:#111118;
+  --text:#f3f0ea;
+  --muted:#b8b0c8;
+  --accent:#9d63ff;
+  --line:#2b2735;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+nav {
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(10,10,14,.92);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+  padding:18px 7vw;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+nav a {
+  color:var(--text);
+  text-decoration:none;
+  margin-left:22px;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.logo {
+  font-weight:700;
+  letter-spacing:2px;
+}
+.hero {
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  padding:9vw 7vw;
+  background:
+    linear-gradient(90deg, rgba(8,8,12,.96), rgba(8,8,12,.70), rgba(8,8,12,.95)),
+    url("assets/artwork-01.jpg") center/cover no-repeat;
+}
+.hero-inner { max-width:780px; }
+h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(54px, 9vw, 124px);
+  line-height:.9;
+  margin:0 0 24px;
+  font-weight:400;
+}
+.tagline {
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:13px;
+  font-weight:700;
+}
+.intro {
+  font-size:20px;
+  max-width:660px;
+  color:#ddd6e8;
+}
+.button {
+  display:inline-block;
+  margin-top:26px;
+  border:1px solid var(--accent);
+  color:var(--text);
+  padding:13px 18px;
+  text-decoration:none;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:12px;
+}
+section { padding:72px 7vw; }
+.section-title {
+  font-size:40px;
+  font-family:Georgia, serif;
+  font-weight:400;
+  margin:0 0 28px;
+}
+.section-intro {
+  color:var(--muted);
+  max-width:760px;
+  margin-bottom:30px;
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:28px;
+}
+.card {
+  background:var(--panel);
+  border:1px solid var(--line);
+  overflow:hidden;
+  border-radius:18px;
+  transition:.25s ease;
+}
+.card:hover {
+  transform:translateY(-5px);
+  border-color:var(--accent);
+}
+.card img {
+  width:100%;
+  height:330px;
+  object-fit:cover;
+  display:block;
+}
+.image-link { display:block; }
+.card-body { padding:22px; }
+.category {
+  color:var(--accent);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:12px;
+  font-weight:700;
+  margin:0;
+}
+.tools {
+  color:var(--muted);
+  font-size:14px;
+}
+.project-detail {
+  display:grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap:36px;
+  align-items:start;
+  border-top:1px solid var(--line);
+  background:var(--panel2);
+}
+.project-detail img {
+  width:100%;
+  border-radius:18px;
+  border:1px solid var(--line);
+}
+.about {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:44px;
+  border-top:1px solid var(--line);
+}
+.skills {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.skill {
+  border:1px solid var(--line);
+  padding:9px 12px;
+  border-radius:999px;
+  color:#ddd;
+  font-size:14px;
+}
+footer {
+  padding:40px 7vw;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  text-align:center;
+}
+@media(max-width:760px) {
+  nav { display:block; }
+  nav a { display:inline-block; margin:12px 14px 0 0; }
+  .about,.project-detail { grid-template-columns:1fr; }
+  .card img { height:250px; }
+  section { padding:55px 6vw; }
+}
+
+.project-gallery {
+  display:grid;
+  gap:20px;
+}
+.project-gallery figure { margin:0; }
+.project-gallery figcaption {
+  color:var(--muted);
+  font-size:13px;
+  margin-top:7px;
+}
+.project-gallery .logo-art {
+  object-fit:contain;
+  background:#efefef;
+  max-height:560px;
+}
+.card img.contain-art {
+  object-fit:contain;
+  background:#8d8d8d;
+}
+
+</style>
+</head>
+
+<body>
+<nav>
+  <div class="logo">BRYCE TAYLOR</div>
+  <div>
+    <a href="#graphic-design">Design</a>
+    <a href="#charcoal">Drawing</a>
+    <a href="#photography">Photography</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="tagline">Illustrator • Graphic Designer • Photographer</p>
+    <h1>Bryce Taylor</h1>
+    <p class="intro">A multidisciplinary artist building atmospheric work through illustration, typography, charcoal drawing, photography, and visual storytelling.</p>
+    <a class="button" href="#graphic-design">View Work</a>
+  </div>
+</header>
+
+<section id="graphic-design">
+  <h2 class="section-title">Graphic Design &amp; Illustration</h2>
+  <p class="section-intro">Selected digital design projects combining typography, worldbuilding, layout, and atmospheric visual storytelling.</p>
+  <div class="grid">
+<article class="card">
+  <a href="#vaeloria-album-i-seal" class="image-link">
+    <img src="assets/artwork-02.jpg" alt="Vaeloria Album I — Seal">
+  </a>
+  <div class="card-body">
+    <p class="category">Illustration &amp; Graphic Design</p>
+    <h3>Vaeloria Album I — Seal</h3>
+    <p class="tools">Adobe Illustrator • Album Cover Design • Typography</p>
+    <p>A dark fantasy album cover concept using custom typography, atmospheric composition, and a controlled purple-black palette. This piece introduces the visual identity of Vaeloria through pressure, fracture, and symbolic worldbuilding.</p>
+  </div>
+</article>
+
+
+<article class="card">
+  <a href="#vaeloria-album-ii-breach" class="image-link">
+    <img src="assets/artwork-03.jpg" alt="Vaeloria Album II — Breach">
+  </a>
+  <div class="card-body">
+    <p class="category">Illustration &amp; Graphic Design</p>
+    <h3>Vaeloria Album II — Breach</h3>
+    <p class="tools">Adobe Illustrator • Album Cover Design • Visual Identity</p>
+    <p>The second piece in the Vaeloria album series. This design continues the same visual system while expanding the concept through rupture, movement, and abstract dark fantasy forms.</p>
+  </div>
+</article>
+
+
+<article class="card">
+  <a href="#fahrenheit-451-typography-redesign" class="image-link">
+    <img src="assets/artwork-04.jpg" alt="Fahrenheit 451 Typography Redesign">
+  </a>
+  <div class="card-body">
+    <p class="category">Graphic Design</p>
+    <h3>Fahrenheit 451 Typography Redesign</h3>
+    <p class="tools">Adobe Illustrator • Typography • Layout</p>
+    <p>A typography-focused redesign of the classic novel cover. This project emphasizes visual hierarchy, scale, texture, contrast, and dramatic composition while maintaining a strong connection to the book’s themes.</p>
+  </div>
+</article>
+
+
+<article class="card">
+  <a href="#vaeloria-oddities-market" class="image-link">
+    <img src="assets/artwork-05.jpg" alt="Vaeloria Oddities Market illustrated advertisement">
+  </a>
+  <div class="card-body">
+    <p class="category">Illustration &amp; Graphic Design</p>
+    <h3>Vaeloria Oddities Market</h3>
+    <p class="tools">Adobe Illustrator • Branding • Advertising Layout</p>
+    <p>A promotional advertisement created for the fictional world of Vaeloria. This piece combines digital illustration, typography, branding, and layout design to create an atmospheric fantasy market advertisement.</p>
+  </div>
+</article>
+
+<article class="card">
+  <a href="#vaeloria-brand-vehicle-wrap" class="image-link">
+    <img class="contain-art" src="assets/artwork-06.jpg" alt="Vaeloria branded semi-truck vehicle wrap concept">
+  </a>
+  <div class="card-body">
+    <p class="category">Branding &amp; Production Design</p>
+    <h3>Vaeloria Brand &amp; Vehicle Wrap</h3>
+    <p class="tools">Adobe Illustrator • Branding • Large-Format Layout</p>
+    <p>An original identity and vehicle-wrap concept combining custom typography, emblem design, a limited purple palette, and atmospheric imagery across a commercial truck template.</p>
+  </div>
+</article>
+
+</div>
+</section>
+
+<section id="charcoal">
+  <h2 class="section-title">Charcoal Drawing</h2>
+  <p class="section-intro">Traditional charcoal work focused on value, texture, form, atmosphere, and observational drawing.</p>
+  <div class="grid">
+<article class="card">
+  <a href="#the-withering" class="image-link">
+    <img src="assets/artwork-07.jpg" alt="The Withering charcoal drawing of an organic skull-like structure">
+  </a>
+  <div class="card-body">
+    <p class="category">Charcoal Drawing</p>
+    <h3>The Withering</h3>
+    <p class="tools">Charcoal • Value • Texture</p>
+    <p>An original charcoal drawing exploring decay, organic architecture, and surreal horror. The Withering investigates texture, atmosphere, and dramatic value while developing a darker visual language.</p>
+  </div>
+</article>
+
+
+<article class="card">
+  <a href="#drapery-study" class="image-link">
+    <img src="assets/artwork-08.jpg" alt="Drapery Study">
+  </a>
+  <div class="card-body">
+    <p class="category">Charcoal on Paper</p>
+    <h3>Drapery Study</h3>
+    <p class="tools">Charcoal • Observational Drawing</p>
+    <p>A traditional drawing study focused on fabric folds, shadow structure, highlights, and smooth value transitions.</p>
+  </div>
+</article>
+
+
+<article class="card">
+  <a href="#landscape-study" class="image-link">
+    <img src="assets/artwork-09.jpg" alt="Charcoal landscape study with a lone tree, distant water, and mountains">
+  </a>
+  <div class="card-body">
+    <p class="category">Charcoal on Paper</p>
+    <h3>Landscape Study</h3>
+    <p class="tools">Charcoal • Atmospheric Perspective</p>
+    <p>A charcoal landscape study focusing on atmospheric perspective, soft transitions, composition, and depth.</p>
+  </div>
+</article>
+
+<article class="card">
+  <a href="#monochromatic-still-life" class="image-link">
+    <img src="assets/artwork-10.jpg" alt="Monochromatic blue charcoal still life with skull, specimen jar, drapery, and one-eyed creature">
+  </a>
+  <div class="card-body">
+    <p class="category">Charcoal on Toned Paper</p>
+    <h3>Monochromatic Still Life</h3>
+    <p class="tools">Charcoal • Observational Drawing • Value Study</p>
+    <p>A monochromatic study of anatomy, reflective glass, fabric folds, depth, and controlled value relationships, transformed by an original creature into a dark narrative scene.</p>
+  </div>
+</article>
+
+</div>
+</section>
+
+<section id="photography">
+  <h2 class="section-title">Photography</h2>
+  <p class="section-intro">Technical photography studies exploring lighting, depth of field, motion, and composition.</p>
+  <div class="grid">
+<article class="card">
+  <a href="#lighting-study" class="image-link">
+    <img src="assets/artwork-11.jpg" alt="Lighting Study">
+  </a>
+  <div class="card-body">
+    <p class="category">Photography</p>
+    <h3>Lighting Study</h3>
+    <p class="tools">Artificial Lighting • Natural Lighting • Exposure</p>
+    <p>A technical photography study comparing front lighting, back lighting, side lighting, ambient lighting, LED lighting, and natural window lighting.</p>
+  </div>
+</article>
+
+
+<article class="card">
+  <a href="#depth-of-field-motion-study" class="image-link">
+    <img src="assets/artwork-12.jpg" alt="Depth of Field &amp; Motion Study">
+  </a>
+  <div class="card-body">
+    <p class="category">Photography</p>
+    <h3>Depth of Field &amp; Motion Study</h3>
+    <p class="tools">Depth of Field • Motion Blur • White Balance</p>
+    <p>A photography contact sheet demonstrating shallow depth of field, deep depth of field, motion blur, freeze action, and white balance control.</p>
+  </div>
+</article>
+</div>
+</section>
+
+<section id="project-pages">
+  <h2 class="section-title">Project Details</h2>
+</section>
+
+
+<section id="vaeloria-brand-vehicle-wrap" class="project-detail">
+  <div>
+    <p class="category">Branding &amp; Production Design</p>
+    <h2 class="section-title">Vaeloria Brand &amp; Vehicle Wrap</h2>
+    <p class="tools">Adobe Illustrator • Branding • Typography • Large-Format Layout</p>
+    <p>Original identity and large-format vehicle-wrap concept developed for Vaeloria, a fictional circus of arts and oddities. The project translates a custom emblem and display wordmark into a cohesive commercial application using a limited purple palette, dramatic silhouettes, and atmospheric details.</p>
+  </div>
+  <div class="project-gallery">
+    <figure>
+      <img src="assets/artwork-13.jpg" alt="Vaeloria semi-truck vehicle wrap design">
+      <figcaption>Finished large-format vehicle-wrap application</figcaption>
+    </figure>
+    <figure>
+      <img class="logo-art" src="assets/artwork-14.jpg" alt="Vaeloria logo with dark symmetrical emblem and purple crystal">
+      <figcaption>Vaeloria emblem and wordmark development</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="monochromatic-still-life" class="project-detail">
+  <div>
+    <p class="category">Charcoal on Toned Paper</p>
+    <h2 class="section-title">Monochromatic Still Life</h2>
+    <p class="tools">Charcoal • Observational Drawing • Value Study</p>
+    <p>A monochromatic still-life study exploring anatomy, reflective glass, fabric folds, depth, and controlled value relationships. An original one-eyed creature transforms the observational arrangement into a dark narrative scene while preserving the focus on material, light, and form.</p>
+  </div>
+  <img src="assets/artwork-15.jpg" alt="Monochromatic blue charcoal still life with skull, specimen jar, drapery, and one-eyed creature">
+</section>
+
+<section id="vaeloria-album-i-seal" class="project-detail">
+  <div>
+    <p class="category">Illustration &amp; Graphic Design</p>
+    <h2 class="section-title">Vaeloria Album I — Seal</h2>
+    <p class="tools">Adobe Illustrator • Album Cover Design • Typography</p>
+    <p>A dark fantasy album cover concept using custom typography, atmospheric composition, and a controlled purple-black palette. This piece introduces the visual identity of Vaeloria through pressure, fracture, and symbolic worldbuilding.</p>
+  </div>
+  <img src="assets/artwork-16.jpg" alt="Vaeloria Album I — Seal">
+</section>
+
+
+<section id="vaeloria-album-ii-breach" class="project-detail">
+  <div>
+    <p class="category">Illustration &amp; Graphic Design</p>
+    <h2 class="section-title">Vaeloria Album II — Breach</h2>
+    <p class="tools">Adobe Illustrator • Album Cover Design • Visual Identity</p>
+    <p>The second piece in the Vaeloria album series. This design continues the same visual system while expanding the concept through rupture, movement, and abstract dark fantasy forms.</p>
+  </div>
+  <img src="assets/artwork-17.jpg" alt="Vaeloria Album II — Breach">
+</section>
+
+
+<section id="fahrenheit-451-typography-redesign" class="project-detail">
+  <div>
+    <p class="category">Graphic Design</p>
+    <h2 class="section-title">Fahrenheit 451 Typography Redesign</h2>
+    <p class="tools">Adobe Illustrator • Typography • Layout</p>
+    <p>A typography-focused redesign of the classic novel cover. This project emphasizes visual hierarchy, scale, texture, contrast, and dramatic composition while maintaining a strong connection to the book’s themes.</p>
+  </div>
+  <img src="assets/artwork-18.jpg" alt="Fahrenheit 451 Typography Redesign">
+</section>
+
+
+<section id="vaeloria-oddities-market" class="project-detail">
+  <div>
+    <p class="category">Illustration &amp; Graphic Design</p>
+    <h2 class="section-title">Vaeloria Oddities Market</h2>
+    <p class="tools">Adobe Illustrator • Branding • Advertising Layout</p>
+    <p>A promotional advertisement created for the fictional world of Vaeloria. This piece combines digital illustration, typography, branding, and layout design to create an atmospheric fantasy market advertisement.</p>
+  </div>
+  <img src="assets/artwork-19.jpg" alt="Vaeloria Oddities Market illustrated advertisement">
+</section>
+
+
+<section id="the-withering" class="project-detail">
+  <div>
+    <p class="category">Charcoal Drawing</p>
+    <h2 class="section-title">The Withering</h2>
+    <p class="tools">Charcoal • Value • Texture</p>
+    <p>An original charcoal drawing exploring decay, organic architecture, and surreal horror. The Withering investigates texture, atmosphere, and dramatic value while developing a darker visual language.</p>
+  </div>
+  <img src="assets/artwork-20.jpg" alt="The Withering charcoal drawing of an organic skull-like structure">
+</section>
+
+
+<section id="drapery-study" class="project-detail">
+  <div>
+    <p class="category">Charcoal on Paper</p>
+    <h2 class="section-title">Drapery Study</h2>
+    <p class="tools">Charcoal • Observational Drawing</p>
+    <p>A traditional drawing study focused on fabric folds, shadow structure, highlights, and smooth value transitions.</p>
+  </div>
+  <img src="assets/artwork-21.jpg" alt="Drapery Study">
+</section>
+
+
+<section id="landscape-study" class="project-detail">
+  <div>
+    <p class="category">Charcoal on Paper</p>
+    <h2 class="section-title">Landscape Study</h2>
+    <p class="tools">Charcoal • Atmospheric Perspective</p>
+    <p>A charcoal landscape study focusing on atmospheric perspective, soft transitions, composition, and depth.</p>
+  </div>
+  <img src="assets/artwork-22.jpg" alt="Charcoal landscape study with a lone tree, distant water, and mountains">
+</section>
+
+
+<section id="lighting-study" class="project-detail">
+  <div>
+    <p class="category">Photography</p>
+    <h2 class="section-title">Lighting Study</h2>
+    <p class="tools">Artificial Lighting • Natural Lighting • Exposure</p>
+    <p>A technical photography study comparing front lighting, back lighting, side lighting, ambient lighting, LED lighting, and natural window lighting.</p>
+  </div>
+  <img src="assets/artwork-23.jpg" alt="Lighting Study">
+</section>
+
+
+<section id="depth-of-field-motion-study" class="project-detail">
+  <div>
+    <p class="category">Photography</p>
+    <h2 class="section-title">Depth of Field &amp; Motion Study</h2>
+    <p class="tools">Depth of Field • Motion Blur • White Balance</p>
+    <p>A photography contact sheet demonstrating shallow depth of field, deep depth of field, motion blur, freeze action, and white balance control.</p>
+  </div>
+  <img src="assets/artwork-24.jpg" alt="Depth of Field &amp; Motion Study">
+</section>
+
+
+<section id="about" class="about">
+  <div>
+    <h2 class="section-title">About</h2>
+    <p>I'm Bryce Taylor, an illustrator and multidisciplinary artist pursuing a BFA in Illustration at Sessions College for Professional Design.</p>
+    <p>My work combines traditional charcoal drawing, digital illustration, typography, photography, and atmospheric worldbuilding. I enjoy creating immersive visual experiences inspired by dark fantasy, organic forms, texture, and environmental storytelling.</p>
+  </div>
+  <div>
+    <h2 class="section-title">Skills</h2>
+    <div class="skills">
+      <span class="skill">Adobe Illustrator</span>
+      <span class="skill">Adobe Photoshop</span>
+      <span class="skill">Typography</span>
+      <span class="skill">Layout Design</span>
+      <span class="skill">Photography</span>
+      <span class="skill">Charcoal Drawing</span>
+      <span class="skill">Visual Storytelling</span>
+      <span class="skill">Composition</span>
+      <span class="skill">Worldbuilding</span>
+      <span class="skill">Branding Concepts</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <p>Email: <a style="color:var(--accent)" href="mailto:Bryce.r.taylor22@gmail.com">Bryce.r.taylor22@gmail.com</a></p>
+  <p class="tools">Resume available upon request.</p>
+</section>
+
+<footer>© Bryce Taylor</footer>
+</body>
+</html>
